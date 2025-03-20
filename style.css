@@ -12,7 +12,6 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    overflow: hidden;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -75,6 +74,8 @@ main {
     font-size: 24px;
     cursor: pointer;
     color: black;
+    z-index: 1100;
+    position: relative;
 }
 
 #hero {
