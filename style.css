@@ -62,7 +62,7 @@ header {
 
   /* ------ Main ------ */
 main {
-    margin-top: 80px; /* Sesuaikan dengan tinggi header + padding */
+    margin-top: 80px; 
 }
 
 /* Tombol Hamburger (default: disembunyikan) */
@@ -75,6 +75,10 @@ main {
     color: black;
     z-index: 1100;
     position: relative;
+}
+
+.close-menu {
+    display: none;
 }
 
 #hero {
@@ -271,7 +275,7 @@ h2 {
 }
 
 .quality {
-    width: 150px; 
+    width: 150px; /* Ukuran tetap */
     text-align: center;
 }
 
@@ -294,7 +298,7 @@ h2 {
 
 #my-project {
     background: #A8B683; 
-    padding: 40px 5%; 
+    padding: 40px 5%; /* Ruang atas, bawah, dan sisi */
     display: flex;
     flex-direction: column;
     margin-bottom: 200px;
@@ -306,17 +310,17 @@ h2 {
 
 .project-container {
     display: flex;
-    gap: 35px; 
-    overflow-x: auto; 
-    white-space: nowrap; 
+    gap: 35px; /* Beri jarak antar proyek */
+    overflow-x: auto; /*scroll horizontal */
+    white-space: nowrap; /* Mencegah elemen turun ke bawah */
     padding-bottom: 10px;
-    scroll-snap-type: x mandatory; 
+    scroll-snap-type: x mandatory; /* Efek snapping*/
     color: #A8B683;
 }
 
 .project-card {
-    flex: 0 0 auto; 
-    width: 300px; 
+    flex: 0 0 auto; /* Agar setiap proyek tidak berubah ukuran */
+    width: 300px; /* Sesuaikan dengan ukuran yang pas */
     background: white;
     padding: 10px;
     text-align: center;
@@ -324,17 +328,17 @@ h2 {
 }
 
 .project-card img {
-    width: 100%; 
+    width: 100%; /* Supaya gambar pas di dalam card */
     height: auto;
-    border-radius: 10px; 
+    border-radius: 10px; /* Biar lebih estetik */
 }
 
 .project-container::-webkit-scrollbar {
-    height: 8px;
+    height: 8px; /* Sesuaikan tinggi scrollbar */
 }
 
 .project-container::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: #888; /* Warna scrollbar */
 }
 
 .project-container {
@@ -361,7 +365,7 @@ h2 {
     display: flex;
     gap: 20px;
     overflow-x: auto; 
-    white-space: nowrap; 
+    white-space: nowrap; /* Biar elemen tidak turun ke bawah */
     padding-bottom: 10px; 
 }
 
@@ -371,13 +375,13 @@ h2 {
     padding: 20px;
     border-radius: 12px;
     text-align: center;
-    white-space: normal; 
+    white-space: normal; /* Supaya teks tetap rapi */
 }
 
 .testimoni-card img {
     width: 68px;
     height: 68px;
-    border-radius: 50%; 
+    border-radius: 50%; /* Biar fotonya bulat */
     object-fit: cover;
     margin-bottom: 10px;
 }
@@ -649,7 +653,7 @@ textarea {
         width: 100%;
         display: flex;
         background-color: #E9CBB7; 
-        z-index: 1000;       
+        z-index: 1000;      
         justify-content: space-between;
         align-items: center;
         box-sizing: border-box;
@@ -664,33 +668,70 @@ textarea {
     
     /* Tampilkan tombol hamburger di mobile */
     .menu-toggle {
-        display: block;
-        font-family: 'Poppins', sans-serif; 
-        font-weight: 600;
-        font-size: 18px; 
+        font-size: 18px;
         background: none;
         border: none;
         cursor: pointer;
-        color: #333;
-        margin-left: auto;
-    }
-    
-        /* Sembunyikan navigasi default */
-        /* Nav disembunyikan di mobile, muncul saat toggle */
-    .nav-links ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 30px;
-        background-color: #e9cbb7;
-        padding: 10px;
-        border-radius: 5px;
-        gap: 10px;
+        color: black;
+        z-index: 1100;
+        display: block;
     }
 
-    .nav-links ul.show {
+        /* Sembunyikan navigasi default */
+        /* Nav disembunyikan di mobile, muncul saat toggle */
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Awalnya di luar layar */
+        width: 70%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        transition: right 0.3s ease-in-out;
         display: flex;
+        flex-direction: column;
+        align-items: start;
+        padding-top: 20px;
+    }
+
+    .nav-links ul {
+        list-style: none;
+        padding: 20px;
+        width: 100%;
+    }
+
+    .nav-links ul li {
+        padding: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .nav-links ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        display: block;
+    }
+
+        /* Tombol Close */
+    .close-menu {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        display: none;
+        color: white;
+    }
+
+    .nav-links.active .close-menu {
+        display: block; 
+    }
+
+    /* Efek saat menu dibuka */
+    .nav-links.active {
+        right: 0;
     }
 
     .container {
@@ -717,11 +758,11 @@ textarea {
         display: flex;
         align-items: center;
         gap: 20px;
-        justify-content: flex-start;
+        justify-content: flex-start; /* Agar tombol dan ikon rata kiri */
     }    
 
     .profile {
-        order: -1; 
+        order: -1; /* Memindahkan gambar ke atas */
         justify-content: center;
         width: 100%;
     }
@@ -795,8 +836,8 @@ textarea {
     }
 
     input, textarea {
-        padding: 4px;
-        font-size: 10px;
+        padding: 4px; /* Tambahan kecilin padding di HP */
+        font-size: 10px; /* Font size lebih kecil */
     }
     
     .map-container iframe {
@@ -906,7 +947,7 @@ textarea {
     body {
         margin: 0;
         padding: 0;
-        overflow-x: hidden;
+        overflow-x: hidden; /* Biar nggak ada scroll horizontal */
     }
     
     header {
