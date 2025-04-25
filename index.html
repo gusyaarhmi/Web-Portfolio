@@ -7,6 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <title>Portfolio</title>
 </head>
 <body>
@@ -186,7 +188,7 @@
             </div>
             <div class="testimoni-card">
                 <img src="assets/Selvi.jpg" alt="Selvi">
-                <p>"Bekerja dengan ALifa adalah keputusan terbaik! Desain yang dihasilkan sangat memukau dan modern"</p>
+                <p>"Bekerja dengan Alifa adalah keputusan terbaik! Desain yang dihasilkan sangat memukau dan modern"</p>
                 <span>- Selvi</span>
             </div>
         </div>
@@ -196,25 +198,26 @@
         <h2>Interested working with me?</h2>
         
         <div class="form-container">
-            <div class="input-group">
-                <div class="form-group">
-                    <input type="text" placeholder="Name" required>
-                    <input type="email" placeholder="Email" required>
-                    <input type="tel" placeholder="Phone" required>
-                </div>
-                <div class="message-group">
-                    <textarea placeholder="Message" required></textarea>
-                    <div class="sendbt-container">
-                        <button type="submit" class="send-button">Send</button>
+            <form id="contactForm">
+                <div class="input-group">
+                    <div class="form-group">
+                        <input type="text" id="nama" placeholder="Name" required>
+                        <input type="email" id="email" placeholder="Email" required>
+                        <input type="tel" id="telepon" placeholder="Phone" required>
+                    </div>
+                    <div class="message-group">
+                        <textarea id="pesan" placeholder="Message" required></textarea>
+                        <div class="sendbt-container">
+                            <button type="submit" class="send-button">Send</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>  
 
             <div class="map-container">
                 <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.2327858508506!2d108.22009059999999!3d-7.327731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f5724259ce2f3%3A0xf1f701ba6e8abc42!2sHZ%20Mustofa%20Tasikmalaya!5e0!3m2!1sen!2sid!4v1740795116659!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </iframe>
             </div>
     </section>
 
